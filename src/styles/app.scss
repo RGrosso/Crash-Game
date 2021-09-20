@@ -1,0 +1,166 @@
+@import "./variables";
+@import "bootstrap";
+
+body {
+    background-color: $black;
+    line-height: 1.4;
+    color: $text-color;
+    font-family: Roboto, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#container {
+    width: 90%;
+    position: relative;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 1000;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#multiplier {
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    color: $primary;
+    font-size: 6vw;
+}
+
+#multiplier.crashed {
+    color: $secondary;
+}
+
+#game {
+    position: relative;
+    height: 80vh;
+
+    .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media only screen and (max-width: $sm) {
+        width: 80vw;
+        height: 80vw;
+    }
+}
+
+.dark-bg {
+    background-color: $black;
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem;
+}
+
+.light-black-bg {
+    background-color: $light-black;
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem;
+}
+
+main {
+    padding: 0.5rem;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.betting-menu .btn-outline-primary {
+    color: $primary;
+    border-color: $primary;
+    &:hover,
+    &:active,
+    &:focus {
+        color: $black !important;
+        border-color: $primary !important;
+        background-color: $primary !important;
+        outline: none !important;
+        box-shadow: none;
+    }
+}
+
+.input-group > .input-group-append > .btn {
+    font-size: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.background-fade {
+    background-color: #0d0d0d;
+    transition: all 250ms;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeBackground {
+    from {
+        background-color: #0d0d0d;
+    }
+    to {
+        background-color: #f44336;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(2);
+    }
+}
+
+.background-fade.animate {
+    animation: fadeBackground 90s forwards;
+}
+
+#multiplier {
+    transform: scale(1);
+}
+
+.game-round--active {
+    #multiplier {
+        animation: scaleUp 60s forwards;
+        animation-timing-function: cubic-bezier(0.64, 0.18, 0.82, 0.34);
+    }
+}
+
+#balance-amount {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    background: $primary;
+    padding: 0.55rem 1rem;
+    border-radius: 15px;
+}
+
+.cursor-pointer,
+.cursor-pointer * {
+    cursor: pointer;
+}
