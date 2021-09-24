@@ -1,17 +1,13 @@
 <template>
-    <div class="container">
-        <p>{{ hello }}</p>
+    <div>
+        <TheHeader></TheHeader>
+        <div class="container">
+            <p>{{ hello }}</p>
+        </div>
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-    setup() {
-        const hello: string = "hello world";
-
-        return { hello };
-    },
-});
+<script lang="ts" setup>
+import TheHeader from "./components/TheHeader.vue";
+const hello: string = "hello world";
 </script>

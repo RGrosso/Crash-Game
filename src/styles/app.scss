@@ -164,3 +164,36 @@ body {
 .cursor-pointer * {
     cursor: pointer;
 }
+
+#header {
+    background-color: $light-black;
+    box-shadow: var(0 0 #0000, 0 0 #0000), var(0 0 #0000, 0 0 #0000), var(0 0 #0000);
+}
+
+#balance-background {
+    border-radius: 0.25rem 0 0 0.25rem;
+    border: 1px solid $primary;
+    background-color: hsla(125, 34%, 54%, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#balance {
+    margin-bottom: 0;
+    font-weight: 500;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.balance-container {
+    width: auto;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
