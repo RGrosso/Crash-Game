@@ -1,13 +1,11 @@
 <template>
     <div>
-        <TheHeader></TheHeader>
-        <div class="container">
-            <p>{{ hello }}</p>
-        </div>
+        <TheHeader />
+        <TheGame />
     </div>
 </template>
 
 <script lang="ts" setup>
 import TheHeader from "./components/TheHeader.vue";
-const hello: string = "hello world";
+import TheGame from "./components/TheGame.vue";
 </script>

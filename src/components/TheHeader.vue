@@ -1,5 +1,5 @@
 <template>
-    <header id="header">
+    <header id="header" class="w-100">
         <div class="container py-3 d-flex flex-row justify-content-between">
             <div id="logo">
                 <svg
@@ -24,6 +24,3 @@
         </div>
     </header>
 </template>
-
-<script setup lang="ts">
-</script>
