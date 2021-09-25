@@ -1,10 +1,10 @@
 import { reactive } from "vue";
-import { ValuePayload, State } from "../interfaces/store";
+import { ValuePayload, State, Getters, Methods } from "../interfaces/store";
 
 const state = <State>reactive({
     autoBetEnabled: false,
     gameRoundActive: false,
-    multiplier: 0,
+    multiplier: 1,
     newRoundDuration: 3000,
     betRange: {
         min: 100,
@@ -16,7 +16,7 @@ const state = <State>reactive({
     betState: "BET_INACTIVE",
 });
 
-const methods = {
+const methods: Methods = {
     setMultiplier: ({ value }: ValuePayload) => {
         state.multiplier = value;
     },
@@ -46,7 +46,12 @@ const methods = {
     },
 };
 
+const getters: Getters = {
+    multiplier: (): string => `${state.multiplier.toFixed(2)}x`,
+};
+
 export default {
     state,
     methods,
+    getters,
 };

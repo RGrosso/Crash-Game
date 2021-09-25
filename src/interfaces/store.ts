@@ -18,3 +18,20 @@ type BetState = "BET_PLACED" | "BET_ACTIVE" | "BET_INACTIVE" | "BET_PENDING";
 export interface ValuePayload {
     value: number;
 }
+
+export interface Getters {
+    multiplier(): string;
+}
+
+export interface Methods {
+    setMultiplier(payload: ValuePayload): void;
+    initialiseState(payload: ValuePayload): void;
+    startRound(): void;
+    endRound(): void;
+}
+
+export interface Store {
+    state: State;
+    methods: Methods;
+    getters: Getters;
+}

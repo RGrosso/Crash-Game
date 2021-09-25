@@ -81,7 +81,8 @@ export default class GameSequence {
      * @param {Number} value
      */
     setMultiplier(value: number) {
-        store.methods.setMultiplier({ value });
+        const roundedMultiplier: number = Math.round(value * 100) / 100;
+        store.methods.setMultiplier({ value: roundedMultiplier });
     }
 
     /**
