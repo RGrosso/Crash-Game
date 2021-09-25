@@ -1,13 +1,17 @@
 <template>
     <div>
         <TheHeader />
-        <TheGame />
+        <div class="row g-2 w-100">
+            <TheGame />
+            <ManualBetMenu />
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import TheHeader from "./components/TheHeader.vue";
+import ManualBetMenu from "./components/Betting/ManualBetMenu.vue";
 import TheGame from "./components/TheGame.vue";
+import TheHeader from "./components/TheHeader.vue";
 
 import { provide } from "vue";
 import { Store } from "./interfaces/store";

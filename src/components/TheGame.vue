@@ -1,6 +1,5 @@
 <template>
-    <!-- TODO: Replace with a canvas or Three JS -->
-    <div id="game" class="mx-auto col-12 p-2">
+    <div id="game" class="col-12 col-md-8 p-2">
         <div id="game-square" class="d-flex justify-content-center align-items-center">
             <h2 class="mb-0 monospace">{{ multipler }}</h2>
         </div>

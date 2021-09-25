@@ -160,7 +160,7 @@ body {
 
 #header {
     background-color: $light-black;
-    box-shadow: var(0 0 #0000, 0 0 #0000), var(0 0 #0000, 0 0 #0000), var(0 0 #0000);
+    box-shadow: $dark-box-shadow;
 }
 
 #balance-background {
@@ -193,4 +193,47 @@ body {
 
 .monospace {
     font-family: var(--bs-font-monospace);
+}
+
+.dark-input-group {
+    border-radius: 0.25rem;
+    $dark-input-colour: hsl(237, 37%, 12%);
+    background-color: $dark-input-colour;
+
+    * {
+        border-color: transparent;
+        background-color: transparent;
+        color: $light;
+    }
+
+    input {
+        &:focus {
+            background-color: transparent;
+        }
+
+        &::placeholder {
+            color: hsl(0, 0%, 75%);
+        }
+    }
+
+    .btn {
+        border-left: 1px solid $light;
+        border-bottom: 2px solid $primary;
+
+        &:active,
+        &:focus,
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
 }
