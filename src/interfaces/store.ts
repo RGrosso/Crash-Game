@@ -6,6 +6,7 @@ export interface State {
     betRange: {
         min: number;
         max: number;
+        step: number;
     };
     balance: number;
     betActive: boolean;
@@ -21,6 +22,7 @@ export interface ValuePayload {
 
 export interface Getters {
     multiplier(): string;
+    cashBetAmount(): number;
 }
 
 export interface Methods {
@@ -28,6 +30,7 @@ export interface Methods {
     initialiseState(payload: ValuePayload): void;
     startRound(): void;
     endRound(): void;
+    setBetAmount(payload: ValuePayload): void;
 }
 
 export interface Store {

@@ -209,6 +209,7 @@ body {
     input {
         &:focus {
             background-color: transparent;
+            color: $light;
         }
 
         &::placeholder {

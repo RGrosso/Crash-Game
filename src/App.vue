@@ -1,9 +1,11 @@
 <template>
     <div>
         <TheHeader />
-        <div class="row g-2 w-100">
-            <TheGame />
-            <ManualBetMenu />
+        <div class="container">
+            <div class="row g-2 w-100">
+                <TheGame />
+                <ManualBetMenu />
+            </div>
         </div>
     </div>
 </template>

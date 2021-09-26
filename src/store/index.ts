@@ -9,6 +9,7 @@ const state = <State>reactive({
     betRange: {
         min: 100,
         max: 50000,
+        step: 10,
     },
     balance: 1000000,
     betActive: false,
@@ -44,10 +45,30 @@ const methods: Methods = {
             state.betState = "BET_INACTIVE";
         }
     },
+    setBetAmount: ({ value }: ValuePayload) => {
+        const formattedValue = Math.round(value / state.betRange.step) * state.betRange.step;
+
+        if (formattedValue > state.balance || formattedValue > state.balance) {
+            return;
+        }
+
+        if (formattedValue < state.betRange.min) {
+            state.betAmount = state.betRange.min;
+            return;
+        }
+
+        if (formattedValue > state.betRange.max) {
+            state.betAmount = state.betRange.max;
+            return;
+        }
+
+        state.betAmount = value;
+    },
 };
 
 const getters: Getters = {
     multiplier: (): string => `${state.multiplier.toFixed(2)}x`,
+    cashBetAmount: (): number => state.betAmount / 100,
 };
 
 export default {
