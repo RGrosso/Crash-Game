@@ -76,12 +76,32 @@ const methods: Methods = {
             }
         }
     },
+    cancelBet: () => {
+        if (state.betActive) {
+            // only increase the bet if it was placed and not pending
+            if (!state.gameRoundActive && state.betState === "BET_PLACED") {
+                state.balance = Math.floor(state.balance + state.betAmount);
+            }
+            state.betActive = false;
+            state.autoBetEnabled = false;
+            state.betState = "BET_INACTIVE";
+        }
+    },
+    cashoutBet: () => {
+        const currentMultiplier: number = state.multiplier;
+        if (state.gameRoundActive) {
+            state.balance = Math.floor(state.balance + currentMultiplier * state.betAmount);
+            state.betActive = state.autoBetEnabled; // if auto bet is active, bet remains active
+            state.betState = state.autoBetEnabled ? "BET_PENDING" : "BET_INACTIVE";
+        }
+    },
 };
 
 const getters: Getters = {
     multiplier: (): string => `${state.multiplier.toFixed(2)}x`,
     cashBetAmount: (): number => state.betAmount / 100,
     cashBalance: (): number => state.balance / 100,
+    cashoutAmount: (): number => Math.floor(state.multiplier * state.betAmount) / 100,
 };
 
 export default {
