@@ -23,6 +23,7 @@ export interface ValuePayload {
 export interface Getters {
     multiplier(): string;
     cashBetAmount(): number;
+    cashBalance(): number;
 }
 
 export interface Methods {
@@ -31,6 +32,7 @@ export interface Methods {
     startRound(): void;
     endRound(): void;
     setBetAmount(payload: ValuePayload): void;
+    placeBet(): void;
 }
 
 export interface Store {

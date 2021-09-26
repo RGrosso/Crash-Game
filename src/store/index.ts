@@ -64,11 +64,24 @@ const methods: Methods = {
 
         state.betAmount = value;
     },
+    placeBet: () => {
+        if (!state.betActive) {
+            state.betActive = true;
+
+            if (!state.gameRoundActive) {
+                state.balance = Math.floor(state.balance - state.betAmount);
+                state.betState = "BET_PLACED";
+            } else if (state.betState === "BET_INACTIVE") {
+                state.betState = "BET_PENDING";
+            }
+        }
+    },
 };
 
 const getters: Getters = {
     multiplier: (): string => `${state.multiplier.toFixed(2)}x`,
     cashBetAmount: (): number => state.betAmount / 100,
+    cashBalance: (): number => state.balance / 100,
 };
 
 export default {

@@ -238,3 +238,25 @@ body {
         -moz-appearance: textfield;
     }
 }
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    color: $white !important;
+}
+
+.action-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 1.4;
+
+    .action {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+}

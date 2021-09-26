@@ -1,6 +1,6 @@
 <template>
     <div class="col-12 col-md-4">
-        <form class="pt-3">
+        <div class="pt-3">
             <div class="mb-3">
                 <label for="bet-amount" class="form-label">Bet Amount</label>
                 <div class="input-group dark-input-group">
@@ -21,13 +21,15 @@
                     <button @click="maxBet" class="btn" type="button">Max</button>
                 </div>
             </div>
-        </form>
+            <ActionButton />
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { inject, ref, computed, watchEffect } from "vue";
 import { Store } from "../../interfaces/store";
+import ActionButton from "./ActionButton.vue";
 
 const store = <Store>inject("store");
 const betAmount = ref(store.state.betAmount);
