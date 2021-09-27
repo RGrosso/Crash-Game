@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 import { inject, ref, computed, watchEffect } from "vue";
 import { Store } from "../../interfaces/store";
-import Utils from "../../utils";
+import Utils from "../../Utils";
 
 const store = <Store>inject("store");
 const betAmount = ref(store.getters.cashBetAmount());

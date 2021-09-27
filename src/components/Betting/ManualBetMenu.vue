@@ -7,9 +7,9 @@
                     <span class="input-group-text">£</span>
                     <input
                         v-model="cashBetAmount"
-                        :max="convertToPounds(store.state.betRange.max)"
-                        :min="convertToPounds(store.state.betRange.min)"
-                        :step="convertToPounds(store.state.betRange.step)"
+                        :max="Utils.convertToPounds(store.state.betRange.max)"
+                        :min="Utils.convertToPounds(store.state.betRange.min)"
+                        :step="Utils.convertToPounds(store.state.betRange.step)"
                         :disabled="userCannotChangeBet"
                         type="number"
                         class="form-control"
@@ -31,6 +31,7 @@
 import { inject, ref, computed, watchEffect } from "vue";
 import { Store } from "../../interfaces/store";
 import ActionButton from "./ActionButton.vue";
+import Utils from "../../Utils";
 
 const store = <Store>inject("store");
 const betAmount = ref(store.state.betAmount);
@@ -38,12 +39,9 @@ const userCannotChangeBet = computed(() => store.state.betState !== "BET_INACTIV
 
 const updateBet = (value: number) => store.methods.setBetAmount({ value });
 
-const convertToPence = (amount: number) => amount * 100;
-const convertToPounds = (amount: number) => amount / 100;
-
 const cashBetAmount = computed({
-    get: () => convertToPounds(betAmount.value),
-    set: (value: number) => updateBet(convertToPence(value)),
+    get: () => Utils.convertToPounds(betAmount.value),
+    set: (value: number) => updateBet(Utils.convertToPence(value)),
 });
 
 const halfBet = () => updateBet(betAmount.value / 2);

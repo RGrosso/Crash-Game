@@ -1,5 +1,6 @@
 import { reactive } from "vue";
 import { ValuePayload, State, Getters, Methods } from "../interfaces/store";
+import Utils from "../Utils";
 
 const state = <State>reactive({
     autoBetEnabled: false,
@@ -103,9 +104,9 @@ const methods: Methods = {
 
 const getters: Getters = {
     multiplier: (): string => `${state.multiplier.toFixed(2)}x`,
-    cashBetAmount: (): number => state.betAmount / 100,
-    cashBalance: (): number => state.balance / 100,
-    cashoutAmount: (): number => Math.floor(state.multiplier * state.betAmount) / 100,
+    cashBetAmount: (): number => Utils.convertToPounds(state.betAmount),
+    cashBalance: (): number => Utils.convertToPounds(state.balance),
+    cashoutAmount: (): number => Utils.convertToPounds(Math.floor(state.multiplier * state.betAmount)),
 };
 
 export default {

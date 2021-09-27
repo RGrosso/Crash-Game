@@ -22,7 +22,7 @@
 <script lang="ts" setup>
 import { inject, watchEffect, ref, computed } from "vue";
 import { Store } from "../interfaces/store";
-import Utils from "../utils";
+import Utils from "../Utils";
 
 const store = <Store>inject("store");
 const balance = ref(store.getters.cashBalance());
