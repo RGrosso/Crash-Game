@@ -22,6 +22,7 @@
                     <button @click="maxBet" class="btn" type="button" :disabled="userCannotChangeBet">Max</button>
                 </div>
             </div>
+            <AutoBetCheckbox class="mb-3" />
             <ActionButton />
         </div>
     </div>
@@ -32,10 +33,10 @@ import { inject, ref, computed, watchEffect } from "vue";
 import { Store } from "../../interfaces/store";
 import ActionButton from "./ActionButton.vue";
 import Utils from "../../Utils";
+import AutoBetCheckbox from "./AutoBetCheckbox.vue";
 
 const store = <Store>inject("store");
 const betAmount = ref(store.state.betAmount);
-const userCannotChangeBet = computed(() => store.state.betState !== "BET_INACTIVE");
 
 const updateBet = (value: number) => store.methods.setBetAmount({ value });
 
@@ -43,6 +44,7 @@ const cashBetAmount = computed({
     get: () => Utils.convertToPounds(betAmount.value),
     set: (value: number) => updateBet(Utils.convertToPence(value)),
 });
+const userCannotChangeBet = computed(() => store.state.betState !== "BET_INACTIVE");
 
 const halfBet = () => updateBet(betAmount.value / 2);
 const doubleBet = () => updateBet(betAmount.value * 2);

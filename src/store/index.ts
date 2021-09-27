@@ -100,6 +100,9 @@ const methods: Methods = {
             state.betState = state.autoBetEnabled ? "BET_PENDING" : "BET_INACTIVE";
         }
     },
+    updateAutoBet: (enabled: boolean) => {
+        state.autoBetEnabled = enabled;
+    },
 };
 
 const getters: Getters = {

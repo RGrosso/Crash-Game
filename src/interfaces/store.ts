@@ -29,6 +29,7 @@ export interface Methods {
     placeBet(): void;
     cancelBet(): void;
     cashoutBet(): void;
+    updateAutoBet(enabled: boolean): void;
 }
 
 export interface Getters {
