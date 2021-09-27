@@ -237,6 +237,10 @@ body {
     input[type="number"] {
         -moz-appearance: textfield;
     }
+
+    .form-control:disabled {
+        background-color: inherit !important;
+    }
 }
 
 .btn-primary,

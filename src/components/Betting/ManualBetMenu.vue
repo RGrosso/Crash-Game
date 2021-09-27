@@ -10,15 +10,16 @@
                         :max="convertToPounds(store.state.betRange.max)"
                         :min="convertToPounds(store.state.betRange.min)"
                         :step="convertToPounds(store.state.betRange.step)"
+                        :disabled="userCannotChangeBet"
                         type="number"
                         class="form-control"
                         placeholder="Bet Amount"
                         aria-label="Bet Amount"
                         id="bet-amount"
                     />
-                    <button @click="halfBet" class="btn" type="button">½</button>
-                    <button @click="doubleBet" class="btn" type="button">2x</button>
-                    <button @click="maxBet" class="btn" type="button">Max</button>
+                    <button @click="halfBet" class="btn" type="button" :disabled="userCannotChangeBet">½</button>
+                    <button @click="doubleBet" class="btn" type="button" :disabled="userCannotChangeBet">2x</button>
+                    <button @click="maxBet" class="btn" type="button" :disabled="userCannotChangeBet">Max</button>
                 </div>
             </div>
             <ActionButton />
@@ -33,6 +34,7 @@ import ActionButton from "./ActionButton.vue";
 
 const store = <Store>inject("store");
 const betAmount = ref(store.state.betAmount);
+const userCannotChangeBet = computed(() => store.state.betState !== "BET_INACTIVE");
 
 const updateBet = (value: number) => store.methods.setBetAmount({ value });
 

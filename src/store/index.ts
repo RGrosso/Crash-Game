@@ -46,6 +46,10 @@ const methods: Methods = {
         }
     },
     setBetAmount: ({ value }: ValuePayload) => {
+        if (state.betState !== "BET_INACTIVE") {
+            return; //bet can only be placed
+        }
+
         const formattedValue = Math.round(value / state.betRange.step) * state.betRange.step;
 
         if (formattedValue > state.balance || formattedValue > state.balance) {
