@@ -2,7 +2,7 @@
     <div>
         <TheHeader />
         <div class="container">
-            <div class="row g-2 w-100">
+            <div class="row g-md-2 g-0 w-100">
                 <TheGame />
                 <ManualBetMenu />
             </div>
